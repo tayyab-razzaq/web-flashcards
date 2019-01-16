@@ -1,14 +1,10 @@
 import React from 'react';
-import './App.css';
-import './scss/styles.min.css';
-import routes from "./routes";
-import {Header} from "./components/header";
+import routes from './routes';
 
 
-export default function WouldYouRatherApp (props) {
+export default function App () {
 	return (
-		<div className="app">
-			<Header history={props.history} pathname={props.history.location.pathname}/>
+		<div className='app'>
 			<div className='content'>
 				{routes}
 			</div>
