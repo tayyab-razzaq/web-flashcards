@@ -2,11 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import {Provider} from 'react-redux';
-import WouldYouRatherApp from './App';
 import * as serviceWorker from './serviceWorker';
 import {createBrowserHistory} from "history";
-import {Route, Router} from "react-router-dom";
+import {Router} from "react-router-dom";
 import store from './store';
+import routes from './routes';
 
 let history = createBrowserHistory();
 
@@ -15,7 +15,7 @@ function App (props) {
 	return (
 		<Provider store={store} {...props}>
 			<Router history={history}>
-				<Route path="/" component={WouldYouRatherApp}/>
+				{routes}
 			</Router>
 		</Provider>
 	);

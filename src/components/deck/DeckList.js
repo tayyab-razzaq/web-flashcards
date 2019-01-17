@@ -38,9 +38,7 @@ class DeckList extends Component {
 
 		return (
 			<div style={styles.container}>
-				<div style={styles.container}>
-					{decksList}
-				</div>
+				{decksList}
 			</div>
 		);
 	}
@@ -48,8 +46,7 @@ class DeckList extends Component {
 
 const styles = {
 	container: {
-		flex: 1,
-		// backgroundColor: '#fff',
+
 	},
 	contentContainer: {
 		paddingTop: 30,

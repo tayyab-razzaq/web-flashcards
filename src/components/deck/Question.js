@@ -20,21 +20,53 @@ export default class Question extends Component {
         const {question} = this.props;
 
         return (
-            <React.Fragment>
-                {this.state.showAnswer ? <span>{question.answer}</span> : <strong>{question.question}</strong>}
-                <br/>
-                <a
-                    href='/question' style={styles.inheritColor}
-                    onClick={e => this.onToggleAnswer(e)}>
-                    {this.state.showAnswer ? 'Question' : 'Answer'}
-                </a>
-            </React.Fragment>
+            <div style={styles.mt50}>
+                <div style={styles.mt50}>
+                    <strong>{this.state.showAnswer ? question.answer : question.question}</strong>
+                    <br/>
+                    <a
+                        href='/question' style={styles.inheritColor}
+                        onClick={e => this.onToggleAnswer(e)}>
+                        {this.state.showAnswer ? 'Question' : 'Answer'}
+                    </a>
+                </div>
+                <div style={styles.mt50}>
+                    <button
+                        onClick={this.onAddCardClick}
+                        style={Object.assign({}, styles.regularBtn, styles.correctBtn)}>
+                        Correct
+                    </button>
+                    <button
+                        onClick={this.onStartQuizClick}
+                        style={Object.assign({}, styles.regularBtn, styles.incorrectBtn)}>
+                        Incorrect
+                    </button>
+                </div>
+            </div>
         );
     }
 }
 
 const styles = {
-	inheritColor: {
-		color: 'inherit'
-	}
+    inheritColor: {
+        color: 'inherit'
+    },
+    regularBtn: {
+        alignItems: 'center',
+        border: '1px solid',
+        borderRadius: '5px',
+        padding: '20px',
+        margin: '0 40px 10px',
+    },
+    correctBtn: {
+        background: 'rgb(48, 156, 50)',
+        color: 'white'
+    },
+    incorrectBtn: {
+        background: '#ce1010',
+        color: 'white'
+    },
+    mt50: {
+        marginTop: '50px'
+    }
 };
