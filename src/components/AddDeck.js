@@ -74,7 +74,7 @@ const styles = {
     }
 };
 
-const mapStateToProps = ({decksReducer}) => decksReducer;
+const mapStateToProps = ({decksReducer}) => ({decksReducer});
 
 const mapDispatchToProps = dispatch => ({
     saveNewDeck: title => dispatch(saveNewDeck(title))

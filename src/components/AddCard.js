@@ -87,7 +87,7 @@ const styles = {
     }
 };
 
-const mapStateToProps = ({decksReducer}) => decksReducer;
+const mapStateToProps = ({decksReducer}) => ({decksReducer});
 
 const mapDispatchToProps = dispatch => ({
     addCardToDeck: (title, card) => dispatch(addCardToDeck(title, card))

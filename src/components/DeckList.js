@@ -20,7 +20,7 @@ class DeckList extends Component {
     };
 
     render() {
-
+        debugger;
         const decks = this.props.decksReducer.get('decks');
 
         const decksList = Object.keys(decks).map(deckKey => {
@@ -48,7 +48,7 @@ class DeckList extends Component {
                     <button
                         onClick={this.onAddDeckClick}
                         style={styles.submitBtn}>
-                        Submit
+                        Add Deck
                     </button>
                 </div>
             </div>
@@ -98,7 +98,7 @@ const styles = {
 
 };
 
-const mapStateToProps = ({decksReducer}) => decksReducer;
+const mapStateToProps = ({decksReducer}) => ({decksReducer});
 
 const mapDispatchToProps = dispatch => ({
     getAllDecks: () => dispatch(getAllDecks()),

@@ -46,7 +46,7 @@ const styles = {
 
 };
 
-const mapStateToProps = ({decksReducer}) => decksReducer;
+const mapStateToProps = ({decksReducer}) => ({decksReducer});
 
 
 export default connect(mapStateToProps)(DeckQuestions);
