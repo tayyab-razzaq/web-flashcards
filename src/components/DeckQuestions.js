@@ -46,11 +46,7 @@ const styles = {
 
 };
 
-function mapStateToProps(state) {
-	return {
-		decksReducer: state.decksReducer,
-	};
-}
+const mapStateToProps = ({decksReducer}) => decksReducer;
 
 
 export default connect(mapStateToProps)(DeckQuestions);

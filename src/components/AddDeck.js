@@ -74,18 +74,10 @@ const styles = {
     }
 };
 
-function mapStateToProps(state) {
-    return {
-        decksReducer: state.decksReducer,
-    };
-}
+const mapStateToProps = ({decksReducer}) => decksReducer;
 
-function mapDispatchToProps(dispatch) {
-    return {
-        saveNewDeck(title) {
-            return dispatch(saveNewDeck(title));
-        }
-    };
-}
+const mapDispatchToProps = dispatch => ({
+    saveNewDeck: title => dispatch(saveNewDeck(title))
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddDeck);

@@ -87,18 +87,10 @@ const styles = {
     }
 };
 
-function mapStateToProps(state) {
-    return {
-        decksReducer: state.decksReducer,
-    };
-}
+const mapStateToProps = ({decksReducer}) => decksReducer;
 
-function mapDispatchToProps(dispatch) {
-    return {
-        addCardToDeck(title, card) {
-            return dispatch(addCardToDeck(title, card));
-        }
-    };
-}
+const mapDispatchToProps = dispatch => ({
+    addCardToDeck: (title, card) => dispatch(addCardToDeck(title, card))
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddCard);
