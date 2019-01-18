@@ -1,34 +1,39 @@
 import {
 	GET_ALL_DECKS,
-	SAVE_NEW_DECK_SUCCESSFULLY,
-	OPEN_DECK
+	SAVE_NEW_DECK,
+	GET_SINGLE_DECK,
+	ADD_CARD_TO_DECK
 } from "../common/actionTypes";
 import * as API from "../utils/_DATA";
 
-function decksFetchedSuccessfully(response) {
+function allDecksFetched(response) {
 	return {response, type: GET_ALL_DECKS}
 }
 
 export function getAllDecks() {
-	return dispatch => API._getDecks().then(response =>
-		dispatch(decksFetchedSuccessfully(response))
-	);
+	return dispatch => API.getDecks().then(response => dispatch(allDecksFetched(response)));
 }
 
-function submitNewDeckSuccessfully(response) {
-	return {response, type: SAVE_NEW_DECK_SUCCESSFULLY}
+function newDeckSaving(response) {
+	return {response, type: SAVE_NEW_DECK}
 }
 
-export function submitNewDeck(deck) {
-	return dispatch => API._saveDeck(deck).then(() => dispatch(submitNewDeckSuccessfully())
-	);
+export function saveNewDeck(title) {
+	return dispatch => API.saveDeckTitle(title).then(response => dispatch(newDeckSaving(response)));
 }
 
-function openDeckSuccessfully(response) {
-	return {response, type: OPEN_DECK}
+function deckFetched(response) {
+	return {response, type: GET_SINGLE_DECK}
 }
 
-export function openDeck(deck) {
-	return dispatch => dispatch(openDeckSuccessfully(deck)
-	);
+export function getDeck(id) {
+	return dispatch => API.getDeck(id).then(response => dispatch(deckFetched(response)));
+}
+
+function newCardSaving(response) {
+	return {response, type: ADD_CARD_TO_DECK}
+}
+
+export function addCardToDeck(title, card) {
+	return dispatch => API.addCardToDeck(title, card).then(response => dispatch(newCardSaving(response)));
 }

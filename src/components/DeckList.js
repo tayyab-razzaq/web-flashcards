@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {getAllDecks, submitNewDeck, openDeck} from '../../actions/decksActions';
+import {getAllDecks, saveNewDeck, getDeck} from '../actions/decksActions';
 
 class DeckList extends Component {
 
@@ -8,10 +8,11 @@ class DeckList extends Component {
         this.props.getAllDecks();
     }
 
-    onDeckClick = (e, deck) => {
+    onDeckClick = (e, id) => {
 	    e.preventDefault();
-	    this.props.openDeck(deck);
-	    this.props.history.push('/deck-detail');
+	    this.props.getDeck(id).then(() => {
+	    	this.props.history.push('/deck-detail');
+		});
 	};
 
 	render() {
@@ -27,7 +28,7 @@ class DeckList extends Component {
 				<div key={deckKey} style={styles.deckHolder}>
 					<a
 						href='/home' style={styles.inheritColor}
-						onClick={(e) => this.onDeckClick(e, deckObj)}>
+						onClick={(e) => this.onDeckClick(e, deckKey)}>
 						<span style={styles.deckTitle}>{deckObj.title}</span>
 						<br/>
 						<span style={styles.questionsCount}>{`${questionsCount} Cards`}</span>
@@ -90,11 +91,11 @@ function mapDispatchToProps(dispatch) {
 		getAllDecks() {
 			return dispatch(getAllDecks());
 		},
-		submitNewDeck(deckObj) {
-			return dispatch(submitNewDeck(deckObj));
+		saveNewDeck(title) {
+			return dispatch(saveNewDeck(title));
 		},
-		openDeck(deckObj) {
-			return dispatch(openDeck(deckObj));
+		getDeck(id) {
+			return dispatch(getDeck(id));
 		}
 	};
 }

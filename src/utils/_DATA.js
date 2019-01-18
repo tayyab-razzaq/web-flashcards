@@ -26,7 +26,7 @@ let decks = {
 
 export function _getDecks() {
     return new Promise(res => {
-        setTimeout(() => res({...decks}), 1000)
+        setTimeout(() => res({...decks}), 500)
     });
 }
 
@@ -40,6 +40,53 @@ export function _saveDeck(deck) {
             };
 
             res();
-        }, 1000);
+        }, 500);
+    });
+}
+
+
+export function getDecks() {
+    return new Promise(res => {
+        setTimeout(() => res({...decks}), 500)
+    });
+}
+
+export function getDeck(id) {
+    return new Promise(res => {
+        setTimeout(() => res({...decks[id]}), 500)
+    });
+}
+
+export function saveDeckTitle(title) {
+    return new Promise(res => {
+
+        setTimeout(() => {
+            decks = {
+                ...decks,
+                [title]: {
+                    title: title,
+                    questions: []
+                }
+            };
+
+            res(decks);
+        }, 500);
+    });
+}
+
+export function addCardToDeck(title, card) {
+    return new Promise(res => {
+
+        setTimeout(() => {
+            decks = {
+                ...decks,
+                [title]: {
+                    ...decks[title],
+                    questions: [...decks[title].questions, card]
+                }
+            };
+
+            res({...decks[title]});
+        }, 500);
     });
 }

@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {getAllDecks, submitNewDeck} from '../../actions/decksActions';
 import Question from './Question';
 
 class DeckQuestions extends Component {
@@ -53,16 +52,5 @@ function mapStateToProps(state) {
 	};
 }
 
-function mapDispatchToProps(dispatch) {
-	return {
-		getAllDecks() {
-			return dispatch(getAllDecks());
-		},
-		submitNewDeck(deckObj) {
-			return dispatch(submitNewDeck(deckObj));
-		}
-	};
-}
 
-
-export default connect(mapStateToProps, mapDispatchToProps)(DeckQuestions);
+export default connect(mapStateToProps)(DeckQuestions);

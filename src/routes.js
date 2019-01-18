@@ -1,6 +1,6 @@
 import React from 'react';
 import {Route, Redirect, Switch} from 'react-router-dom';
-import {DeckList, Deck, DeckQuestions} from './components/deck';
+import {DeckList, Deck, DeckQuestions, AddCard, AddDeck} from './components';
 
 export default (
 	<Switch>
@@ -8,8 +8,7 @@ export default (
 		<Route exact path='/deck-list' component={DeckList}/>
 		<Route exact path='/deck-detail' component={Deck}/>
 		<Route exact path='/deck-detail/questions' component={DeckQuestions}/>
-		<Route exact path='/deck/add'/>
-		<Route exact path='/question-detail/:id'/>
-		<Route exact path='/question/add'/>
+		<Route exact path='/deck/add' component={AddDeck}/>
+		<Route exact path='/question/add' component={AddCard}/>
 	</Switch>
 );
