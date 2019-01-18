@@ -20,9 +20,7 @@ class DeckList extends Component {
     };
 
     render() {
-        debugger;
         const decks = this.props.decksReducer.get('decks');
-
         const decksList = Object.keys(decks).map(deckKey => {
             const deckObj = decks[deckKey];
             const {questions} = deckObj;
@@ -95,7 +93,6 @@ const styles = {
         background: 'white',
         color: 'black'
     }
-
 };
 
 const mapStateToProps = ({decksReducer}) => ({decksReducer});
@@ -105,6 +102,5 @@ const mapDispatchToProps = dispatch => ({
     saveNewDeck: title => dispatch(saveNewDeck(title)),
     getDeck: id => dispatch(getDeck(id))
 });
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(DeckList);

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 
-export default class Question extends Component {
+class Question extends Component {
     constructor(props) {
         super(props);
 
@@ -32,12 +33,12 @@ export default class Question extends Component {
                 </div>
                 <div style={styles.mt50}>
                     <button
-                        onClick={this.onAddCardClick}
+                        onClick={() => this.props.onAnswer('correct')}
                         style={Object.assign({}, styles.regularBtn, styles.correctBtn)}>
                         Correct
                     </button>
                     <button
-                        onClick={this.onStartQuizClick}
+                        onClick={() => this.props.onAnswer('incorrect')}
                         style={Object.assign({}, styles.regularBtn, styles.incorrectBtn)}>
                         Incorrect
                     </button>
@@ -70,3 +71,9 @@ const styles = {
         marginTop: '50px'
     }
 };
+
+Question.propTypes = {
+    onAnswer: PropTypes.func.isRequired
+};
+
+export default Question;
