@@ -15,6 +15,10 @@ class DeckList extends Component {
 		});
 	};
 
+    onAddDeckClick = () => {
+    	this.props.history.push('/deck/add');
+	};
+
 	render() {
 
 		const decks = this.props.decksReducer.get('decks');
@@ -40,6 +44,13 @@ class DeckList extends Component {
 		return (
 			<div style={styles.container}>
 				{decksList}
+				<div style={styles.mt50}>
+                    <button
+                        onClick={this.onAddDeckClick}
+                        style={styles.submitBtn}>
+                        Submit
+                    </button>
+                </div>
 			</div>
 		);
 	}
@@ -76,6 +87,15 @@ const styles = {
 	},
 	inheritColor: {
 		color: 'inherit'
+	},
+	submitBtn: {
+		alignItems: 'center',
+        border: '1px solid',
+        borderRadius: '5px',
+        padding: '20px',
+        margin: '0 40px 10px',
+		background: 'white',
+		color: 'black'
 	}
 
 };

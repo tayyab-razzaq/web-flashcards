@@ -59,7 +59,7 @@ class AddCard extends Component {
                 <div style={styles.mt50}>
                     <button
                         onClick={this.onSubmit}
-                        style={Object.assign({}, styles.regularBtn, styles.submitBtn)}>
+                        style={styles.submitBtn}>
                         Submit
                     </button>
                 </div>
@@ -72,14 +72,12 @@ const styles = {
     mt50: {
         marginTop: '50px'
     },
-    regularBtn: {
+    submitBtn: {
         alignItems: 'center',
         border: '1px solid',
         borderRadius: '5px',
         padding: '20px',
         margin: '0 40px 10px',
-    },
-    submitBtn: {
         background: 'black',
         color: 'white',
     },
