@@ -1,4 +1,4 @@
-let decks = {
+/*let decks = {
     React: {
         title: 'React',
         questions: [
@@ -21,38 +21,19 @@ let decks = {
             }
         ]
     }
-};
-
-
-export function _getDecks() {
-    return new Promise(res => {
-        setTimeout(() => res({...decks}), 500)
-    });
-}
-
-export function _saveDeck(deck) {
-    return new Promise(res => {
-
-        setTimeout(() => {
-            decks = {
-                ...decks,
-                [deck.title]: deck
-            };
-
-            res();
-        }, 500);
-    });
-}
+};*/
 
 
 export function getDecks() {
     return new Promise(res => {
+        const decks = JSON.parse(localStorage.getItem('decks')) || {};
         setTimeout(() => res({...decks}), 500)
     });
 }
 
 export function getDeck(id) {
     return new Promise(res => {
+        const decks = JSON.parse(localStorage.getItem('decks'));
         setTimeout(() => res({...decks[id]}), 500)
     });
 }
@@ -61,6 +42,7 @@ export function saveDeckTitle(title) {
     return new Promise(res => {
 
         setTimeout(() => {
+            let decks = JSON.parse(localStorage.getItem('decks')) || {};
             decks = {
                 ...decks,
                 [title]: {
@@ -68,7 +50,7 @@ export function saveDeckTitle(title) {
                     questions: []
                 }
             };
-
+            localStorage.setItem('decks', JSON.stringify(decks));
             res(decks);
         }, 500);
     });
@@ -78,6 +60,7 @@ export function addCardToDeck(title, card) {
     return new Promise(res => {
 
         setTimeout(() => {
+            let decks = JSON.parse(localStorage.getItem('decks')) || {};
             decks = {
                 ...decks,
                 [title]: {
@@ -85,7 +68,7 @@ export function addCardToDeck(title, card) {
                     questions: [...decks[title].questions, card]
                 }
             };
-
+            localStorage.setItem('decks', JSON.stringify(decks));
             res({...decks[title]});
         }, 500);
     });
