@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import styles from '../styles';
 
 class Question extends Component {
     constructor(props) {
@@ -47,30 +48,6 @@ class Question extends Component {
         );
     }
 }
-
-const styles = {
-    inheritColor: {
-        color: 'inherit'
-    },
-    regularBtn: {
-        alignItems: 'center',
-        border: '1px solid',
-        borderRadius: '5px',
-        padding: '20px',
-        margin: '0 40px 10px',
-    },
-    correctBtn: {
-        background: 'rgb(48, 156, 50)',
-        color: 'white'
-    },
-    incorrectBtn: {
-        background: '#ce1010',
-        color: 'white'
-    },
-    mt50: {
-        marginTop: '50px'
-    }
-};
 
 Question.propTypes = {
     onAnswer: PropTypes.func.isRequired

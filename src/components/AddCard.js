@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {addCardToDeck} from '../actions/decksActions';
 import {connect} from "react-redux";
+import styles from '../styles';
 
 class AddCard extends Component {
 
@@ -59,7 +60,7 @@ class AddCard extends Component {
                 <div style={styles.mt50}>
                     <button
                         onClick={this.onSubmit}
-                        style={styles.submitBtn}>
+                        style={styles.inverseSubmitBtn}>
                         Submit
                     </button>
                 </div>
@@ -67,25 +68,6 @@ class AddCard extends Component {
         );
     }
 }
-
-const styles = {
-    mt50: {
-        marginTop: '50px'
-    },
-    submitBtn: {
-        alignItems: 'center',
-        border: '1px solid',
-        borderRadius: '5px',
-        padding: '20px',
-        margin: '0 40px 10px',
-        background: 'black',
-        color: 'white',
-    },
-    inputField: {
-        margin: '0 30px',
-        borderRadius: '10px'
-    }
-};
 
 const mapStateToProps = ({decksReducer}) => ({decksReducer});
 

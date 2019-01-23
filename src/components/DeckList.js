@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {getAllDecks, getDeck, saveNewDeck} from '../actions/decksActions';
+import styles from '../styles';
 
 class DeckList extends Component {
 
@@ -53,47 +54,6 @@ class DeckList extends Component {
         );
     }
 }
-
-const styles = {
-    container: {},
-    contentContainer: {
-        paddingTop: 30,
-    },
-    getStartedContainer: {
-        alignItems: 'center',
-        marginHorizontal: 50,
-    },
-    getStartedText: {
-        fontSize: 17,
-        color: 'rgba(96,100,109, 1)',
-        lineHeight: 24,
-        textAlign: 'center',
-    },
-    deckTitle: {
-        fontSize: 24,
-
-    },
-    questionsCount: {
-        color: '#aaa'
-    },
-    deckHolder: {
-        textAlign: 'center',
-        border: '1px solid #ccc',
-        padding: '10px 0'
-    },
-    inheritColor: {
-        color: 'inherit'
-    },
-    submitBtn: {
-        alignItems: 'center',
-        border: '1px solid',
-        borderRadius: '5px',
-        padding: '20px',
-        margin: '0 40px 10px',
-        background: 'white',
-        color: 'black'
-    }
-};
 
 const mapStateToProps = ({decksReducer}) => ({decksReducer});
 

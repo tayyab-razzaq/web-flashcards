@@ -5,4 +5,4 @@ const rootReducer = combineReducers({
 	decksReducer: decksReducer
 });
 
-export default rootReducer
+export default rootReducer;

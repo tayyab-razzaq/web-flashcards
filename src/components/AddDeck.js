@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {saveNewDeck} from '../actions/decksActions';
 import {connect} from "react-redux";
+import styles from '../styles';
 
 class AddDeck extends Component {
 
@@ -52,27 +53,6 @@ class AddDeck extends Component {
         );
     }
 }
-
-const styles = {
-    mt50: {
-        marginTop: '50px'
-    },
-    regularBtn: {
-        alignItems: 'center',
-        border: '1px solid',
-        borderRadius: '5px',
-        padding: '20px',
-        margin: '0 40px 10px',
-    },
-    submitBtn: {
-        background: 'black',
-        color: 'white',
-    },
-    inputField: {
-        margin: '0 30px',
-        borderRadius: '10px'
-    }
-};
 
 const mapStateToProps = ({decksReducer}) => ({decksReducer});
 

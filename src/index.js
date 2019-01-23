@@ -8,7 +8,7 @@ import {Router} from "react-router-dom";
 import store from './store';
 import routes from './routes';
 
-let history = createBrowserHistory();
+const history = createBrowserHistory();
 
 
 function App (props) {

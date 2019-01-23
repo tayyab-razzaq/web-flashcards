@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import Question from './Question';
+import styles from '../styles';
 
 class DeckQuestions extends Component {
 
@@ -39,29 +40,6 @@ class DeckQuestions extends Component {
 		);
 	}
 }
-
-const styles = {
-	container: {
-		flex: 1,
-		// backgroundColor: '#fff',
-	},
-	deckTitle: {
-		fontSize: 24,
-
-	},
-	questionsCount: {
-		color: '#aaa'
-	},
-	deckHolder: {
-		textAlign: 'center',
-		border: '1px solid #ccc',
-		padding: '10px 0'
-	},
-	inheritColor: {
-		color: 'inherit'
-	}
-
-};
 
 const mapStateToProps = ({decksReducer}) => ({decksReducer});
 

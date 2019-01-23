@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
+import styles from '../styles';
 
 class Deck extends Component {
 
@@ -38,33 +39,6 @@ class Deck extends Component {
         );
     }
 }
-
-const styles = {
-    deckTitle: {
-        fontSize: 24,
-
-    },
-    questionsCount: {
-        color: '#aaa'
-    },
-    regularBtn: {
-        alignItems: 'center',
-        border: '1px solid',
-        borderRadius: '5px',
-        padding: '20px',
-        margin: '0 40px 10px',
-    },
-    addCardBtn: {
-        background: 'white',
-    },
-    startQuizBtn: {
-        background: 'black',
-        color: 'white',
-    },
-    mt50: {
-        marginTop: '50px'
-    }
-};
 
 const mapStateToProps = ({decksReducer}) => ({decksReducer});
 

@@ -6,7 +6,7 @@ import {
 	ADD_CARD_TO_DECK
 } from '../common/actionTypes';
 
-let initialState = new Map({
+const initialState = new Map({
 	statusSuccess: false,
 	decks: {},
 	deck: {
