@@ -1,5 +1,7 @@
 # Web FlashCard Project
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/tayyabRazzaq/web-flashcards.svg)](https://greenkeeper.io/)
+
 This is the code for the web version of final assessment project for Udacity's React-Native course.
 
 The `_DATA.js` file represents a fake database and methods that let you access the data.
