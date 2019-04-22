@@ -4,13 +4,9 @@ import styles from '../styles';
 
 class Deck extends Component {
 
-    onAddCardClick = () => {
-        this.props.history.push('/question/add');
-    };
+    onAddCardClick = () => this.props.history.push('/question/add');
 
-    onStartQuizClick = () => {
-        this.props.history.push('/deck-detail/questions');
-    };
+    onStartQuizClick = () => this.props.history.push('/deck-detail/questions');
 
     render() {
         const deck = this.props.decksReducer.get('deck');

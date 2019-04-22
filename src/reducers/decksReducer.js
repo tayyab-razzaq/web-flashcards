@@ -17,7 +17,7 @@ const initialState = new Map({
 	question: {}
 });
 
-export default function decksReducer(state = initialState, action) {
+export default (state = initialState, action) => {
 	switch (action.type) {
 		case GET_ALL_DECKS:
 			return state.merge({decks: action.response});
@@ -30,4 +30,4 @@ export default function decksReducer(state = initialState, action) {
 		default:
 			return state;
 	}
-}
+};

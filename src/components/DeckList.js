@@ -11,14 +11,10 @@ class DeckList extends Component {
 
     onDeckClick = (e, id) => {
         e.preventDefault();
-        this.props.getDeck(id).then(() => {
-            this.props.history.push('/deck-detail');
-        });
+        this.props.getDeck(id).then(() => this.props.history.push('/deck-detail'));
     };
 
-    onAddDeckClick = () => {
-        this.props.history.push('/deck/add');
-    };
+    onAddDeckClick = () => this.props.history.push('/deck/add');
 
     render() {
         const decks = this.props.decksReducer.get('decks');

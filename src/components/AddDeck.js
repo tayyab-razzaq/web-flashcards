@@ -24,9 +24,7 @@ class AddDeck extends Component {
         if (title in decks) {
             return;
         }
-        this.props.saveNewDeck(title).then(() => {
-            this.props.history.push('/deck-list');
-        });
+        this.props.saveNewDeck(title).then(() => this.props.history.push('/deck-list'));
     };
 
     render() {
