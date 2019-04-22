@@ -11,15 +11,13 @@ import routes from './routes';
 const history = createBrowserHistory();
 
 
-function App (props) {
-	return (
-		<Provider store={store} {...props}>
-			<Router history={history}>
-				{routes}
-			</Router>
-		</Provider>
-	);
-}
+const App = props => (
+	<Provider store={store} {...props}>
+		<Router history={history}>
+			{routes}
+		</Router>
+	</Provider>
+);
 
 ReactDOM.render(<App/>, document.getElementById('root'));
 

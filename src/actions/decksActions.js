@@ -6,34 +6,20 @@ import {
 } from "../common/actionTypes";
 import * as API from "../utils/_DATA";
 
-function allDecksFetched(response) {
-	return {response, type: GET_ALL_DECKS}
-}
+const allDecksFetched = response => ({response, type: GET_ALL_DECKS});
 
-export function getAllDecks() {
-	return dispatch => API.getDecks().then(response => dispatch(allDecksFetched(response)));
-}
+export const getAllDecks = () => dispatch => API.getDecks().then(response => dispatch(allDecksFetched(response)));
 
-function newDeckSaving(response) {
-	return {response, type: SAVE_NEW_DECK}
-}
+const newDeckSaving = response => ({response, type: SAVE_NEW_DECK});
 
-export function saveNewDeck(title) {
-	return dispatch => API.saveDeckTitle(title).then(response => dispatch(newDeckSaving(response)));
-}
+export const saveNewDeck = title => dispatch =>
+	API.saveDeckTitle(title).then(response => dispatch(newDeckSaving(response)));
 
-function deckFetched(response) {
-	return {response, type: GET_SINGLE_DECK}
-}
+const deckFetched = response => ({response, type: GET_SINGLE_DECK});
 
-export function getDeck(id) {
-	return dispatch => API.getDeck(id).then(response => dispatch(deckFetched(response)));
-}
+export const getDeck = id => dispatch => API.getDeck(id).then(response => dispatch(deckFetched(response)));
 
-function newCardSaving(response) {
-	return {response, type: ADD_CARD_TO_DECK}
-}
+const newCardSaving = response => ({response, type: ADD_CARD_TO_DECK});
 
-export function addCardToDeck(title, card) {
-	return dispatch => API.addCardToDeck(title, card).then(response => dispatch(newCardSaving(response)));
-}
+export const addCardToDeck = (title, card) => dispatch =>
+	API.addCardToDeck(title, card).then(response => dispatch(newCardSaving(response)));
