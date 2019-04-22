@@ -1,21 +1,15 @@
-export function getDecks() {
-    return new Promise(res => {
-        const decks = JSON.parse(localStorage.getItem('decks')) || {};
-        setTimeout(() => res({...decks}), 500)
-    });
-}
+export const getDecks = () => new Promise(res => {
+    const decks = JSON.parse(localStorage.getItem('decks')) || {};
+    setTimeout(() => res({...decks}), 500)
+});
 
-export function getDeck(id) {
-    return new Promise(res => {
-        const decks = JSON.parse(localStorage.getItem('decks'));
-        setTimeout(() => res({...decks[id]}), 500)
-    });
-}
+export const getDeck = id => new Promise(res => {
+    const decks = JSON.parse(localStorage.getItem('decks'));
+    setTimeout(() => res({...decks[id]}), 500)
+});
 
-export function saveDeckTitle(title) {
-    return new Promise(res => {
-
-        setTimeout(() => {
+export const saveDeckTitle = title => new Promise(res => {
+    setTimeout(() => {
             let decks = JSON.parse(localStorage.getItem('decks')) || {};
             decks = {
                 ...decks,
@@ -27,13 +21,10 @@ export function saveDeckTitle(title) {
             localStorage.setItem('decks', JSON.stringify(decks));
             res(decks);
         }, 500);
-    });
-}
+});
 
-export function addCardToDeck(title, card) {
-    return new Promise(res => {
-
-        setTimeout(() => {
+export const addCardToDeck = (title, card) => new Promise(res => {
+    setTimeout(() => {
             let decks = JSON.parse(localStorage.getItem('decks')) || {};
             decks = {
                 ...decks,
@@ -45,5 +36,4 @@ export function addCardToDeck(title, card) {
             localStorage.setItem('decks', JSON.stringify(decks));
             res({...decks[title]});
         }, 500);
-    });
-}
+});
